@@ -5,7 +5,7 @@ import pickle
 
 data = pd.read_csv('data/auto-mpg-test.csv', sep=';')
 
-print(data)
+# print(data)
 
 data = data.sample(frac=1)
 
@@ -21,8 +21,9 @@ regressor.fit(x_train, y_train)
 
 y_pred = regressor.predict(x_test)
 
-#print (y_pred)
+# print (y_pred)
 
 
 file_to_write = open('data/models/baummethoden_lr.pickle', "wb")
 pickle.dump(regressor, file_to_write)
+
