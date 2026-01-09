@@ -25,8 +25,21 @@ jobs:
 
     - run: python src/train.py
 
+    - uses: actions/upload-artifact@v4
+      with:
+        # Name of the artifact to upload.
+        # Optional. Default is 'artifact'
+        name: baummethoden_lr.pickle
 
+        # A file, directory or wildcard pattern that describes what to upload
+        # Required.
+        path: data/models/baummethoden_lr.pickle
 
+        # If true, an artifact with a matching name will be deleted before a new one is uploaded.
+        # If false, the action will fail if an artifact for the given name already exists.
+        # Does not fail if the artifact does not exist.
+        # Optional. Default is 'false'
+        overwrite: false
 
 
 
