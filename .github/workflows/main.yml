@@ -1,0 +1,32 @@
+name:CI Learn GitHub Actions
+on:
+  # Löst den Workflow bei Push- oder Pull-Request-Events aus, aber nur für den Hauptzweig (main)
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Ermöglicht es, diesen Workflow manuell über den Tab "Actions" auszuführen
+  workflow_dispatch:
+
+# Ein Workflow-Run besteht aus einem oder mehreren Jobs, die nacheinander oder parallel ausgeführt werden können
+jobs:
+  # Dieser Workflow enthält einen einzelnen Job namens "build"
+  build:
+    # Der Typ des Runners, auf dem der Job ausgeführt wird
+    runs-on: ubuntu-latest
+
+    # Steps stellen eine Abfolge von Aufgaben dar, die als Teil des Jobs ausgeführt werden
+    steps:
+      # Checkt Ihr Repository unter $GITHUB_WORKSPACE aus, damit Ihr Job darauf zugreifen kann
+      - uses: actions/checkout@v2
+
+      # Führt einen einzelnen Befehl über die Runner-Shell aus
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Führt einen Satz von Befehlen über die Runner-Shell aus
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
