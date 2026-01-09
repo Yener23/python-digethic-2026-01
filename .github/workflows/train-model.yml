@@ -1,0 +1,32 @@
+name: Modell Trainingsworkflow
+on:
+  # Ziel ist es, bei jedem geöffneten Pull Request und bei jedem Update eines Pull Request die GitHub Action auszuführen, sodass bei jeder Code Änderung das Modell neu trainiert wird.
+  pull_request:
+
+  push:
+
+  workflow_dispatch: # Ermöglicht es, diesen Workflow manuell über den Tab "Actions" auszuführen
+
+# Ein Workflow-Run besteht aus einem oder mehreren Jobs, die nacheinander oder parallel ausgeführt werden können
+jobs:
+  # Dieser Workflow enthält einen einzelnen Job namens "build"
+  build:
+    # Der Typ des Runners, auf dem der Job ausgeführt wird
+    runs-on: ubuntu-latest
+
+    # Steps stellen eine Abfolge von Aufgaben dar, die als Teil des Jobs ausgeführt werden
+
+    steps:
+    - uses: actions/checkout@v5
+    - uses: actions/setup-python@v6
+      with:
+        python-version: '3.14'
+    - run: pip install -r requirements.txt
+
+    - run: python src/train.py
+
+
+
+
+
+
