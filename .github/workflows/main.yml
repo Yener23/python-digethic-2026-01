@@ -1,13 +1,8 @@
-name:CI Learn GitHub Actions
+name: CI Learn GitHub Actions
 on:
-  # Löst den Workflow bei Push- oder Pull-Request-Events aus, aber nur für den Hauptzweig (main)
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-  # Ermöglicht es, diesen Workflow manuell über den Tab "Actions" auszuführen
-  workflow_dispatch:
+  # Löst den Workflow bei Push- oder Pull-Request-Events aus, aber nur für den Hauptzweig (main) on:
+ push:
+ workflow_dispatch: # Ermöglicht es, diesen Workflow manuell über den Tab "Actions" auszuführen
 
 # Ein Workflow-Run besteht aus einem oder mehreren Jobs, die nacheinander oder parallel ausgeführt werden können
 jobs:
